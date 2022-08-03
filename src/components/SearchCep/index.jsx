@@ -11,6 +11,7 @@ export const SearchCep = () => {
         type="number"
         placeholder="Somente números"
       />
+      <button>Buscar</button>
     </div>
   );
 };
