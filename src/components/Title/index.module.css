@@ -1,0 +1,9 @@
+.title {
+  color: var(--title);
+}
+
+@media screen and (min-width: 600px) {
+  .title {
+    font-size: 3rem;
+  }
+}

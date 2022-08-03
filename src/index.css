@@ -1,0 +1,20 @@
+:root {
+  --bg-color: #e5f8ff;
+  --title: rgb(29, 127, 239);
+  --label: rgb(134, 137, 143);
+  --white: rgb(241, 244, 249);
+  --black: rgb(18, 18, 18);
+  --primary: rgb(15, 69, 218);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+}
