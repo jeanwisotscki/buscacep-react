@@ -1,9 +1,15 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
+
+import { Main } from "../../components/Main";
+import { Title } from "../../components/Title";
 
 export const NotFound = () => {
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <h1>not found</h1>
-    </div>
+    <Main>
+      <Title text="Página não encontrada 🤷" />
+      <button onClick={() => navigate("/")}>Voltar para página inicial</button>
+    </Main>
   );
 };

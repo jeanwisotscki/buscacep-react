@@ -19,7 +19,7 @@ export const SearchCep = () => {
 
   React.useEffect(() => {
     if (data) {
-      navigate("/resultado/" + cep);
+      navigate("/busca/" + cep);
       setData("");
     }
   }, [data]);

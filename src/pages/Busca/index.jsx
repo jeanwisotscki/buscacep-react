@@ -2,11 +2,10 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { Main } from "../../components/Main";
-import { Title } from "../../components/Title";
 
 import styles from "./index.module.css";
 
-export const Result = () => {
+export const Busca = () => {
   const [data, setData] = React.useState("");
   const navigate = useNavigate();
 
@@ -18,17 +17,15 @@ export const Result = () => {
 
     fetch(url)
       .then((res) => res.json())
-      .then((body) => {
-        setData(body);
-        console.log(body);
-      })
+      .then((body) => setData(body))
       .catch((err) => console.log(err));
   }, [cep]);
 
   return (
     <Main>
-      <Title text={data.localidade} />
       <div className={styles.addressContainer}>
+        <span className={styles.span}>Localidade</span>
+        <p className={styles.paragraph}> {data.localidade} </p>
         <span className={styles.span}>Logradouro</span>
         <p className={styles.paragraph}> {data.logradouro} </p>
         <span className={styles.span}>Bairro</span>
@@ -38,19 +35,9 @@ export const Result = () => {
         <span className={styles.span}>CEP</span>
         <p className={styles.paragraph}> {data.cep} </p>
       </div>
-      <button onClick={() => navigate("/")}>Nova busca</button>
+      <button className={styles.button} onClick={() => navigate("/")}>
+        Nova busca
+      </button>
     </Main>
   );
 };
-/*
-bairro: "Centro"
-cep: "89252-000"
-complemento: ""
-ddd: "47"
-gia: ""
-ibge: "4208906"
-localidade: "Jaraguá do Sul"
-logradouro: "Rua Expedicionário Gumercindo da Silva"
-siafi: "8175"
-uf: "SC"
-*/
