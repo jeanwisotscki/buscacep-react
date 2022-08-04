@@ -1,0 +1,30 @@
+.addressContainer {
+  min-width: 90%;
+  background-color: white;
+  border-top: 3px solid var(--title);
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.span {
+  color: var(--label);
+  font-weight: bold;
+}
+
+.paragraph {
+  margin: 0.2rem 0 0.5rem 0.5rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.paragraph::before {
+  content: "";
+  display: block;
+  margin-right: 7px;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: var(--title);
+  margin-left: 5px;
+}
