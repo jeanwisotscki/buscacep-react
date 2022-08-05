@@ -4,7 +4,7 @@
 }
 
 .addressContainer {
-  min-width: 90%;
+  width: 100%;
   background-color: white;
   border-top: 3px solid var(--title);
   padding: 1rem;
@@ -35,7 +35,6 @@
 }
 
 .button {
-  width: 90%;
   background-color: var(--title);
   color: var(--white);
   font-size: 1.2rem;
