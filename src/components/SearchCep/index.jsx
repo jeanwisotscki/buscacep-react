@@ -4,25 +4,23 @@ import { useNavigate } from "react-router-dom";
 import styles from "./index.module.css";
 
 export const SearchCep = () => {
+  const [error, setError] = React.useState(false);
   const [cep, setCep] = React.useState("");
-  const [data, setData] = React.useState("");
   const navigate = useNavigate();
 
-  const handleFetch = () => {
-    const url = "https://viacep.com.br/ws/" + cep + "/json/";
+  const handleClick = () => {
+    if (cep.length === 8) navigate("/busca/" + cep);
 
-    fetch(url)
-      .then((res) => res.json())
-      .then((body) => setData(body))
-      .catch((err) => console.log(err));
+    setError(true);
   };
 
-  React.useEffect(() => {
-    if (data) {
-      navigate("/busca/" + cep);
-      setData("");
+  const isNumber = (e) => {
+    if (e.keyCode !== 8) {
+      if (!/\d/.test(e.key)) {
+        e.preventDefault();
+      }
     }
-  }, [data]);
+  };
 
   return (
     <div className={styles.container}>
@@ -31,13 +29,30 @@ export const SearchCep = () => {
       </label>
       <input
         className={styles.input}
-        type="number"
-        placeholder="Somente números"
         id="cep"
+        type="text"
         value={cep}
-        onChange={(e) => setCep(e.target.value)}
+        maxLength="8"
+        placeholder="Somente números"
+        style={{
+          borderColor: error ? "tomato" : "",
+          color: error ? "tomato" : "",
+          boxShadow: error ? "0 0 0 1px red" : "",
+        }}
+        onKeyPress={(e) => isNumber(e)}
+        onChange={(e) => {
+          setCep(e.target.value);
+          setError(false);
+        }}
       />
-      <button className={styles.button} onClick={handleFetch}>
+      {error ? (
+        <strong className="error">
+          Por favor, preencha o campo corretamente.
+        </strong>
+      ) : (
+        ""
+      )}
+      <button className={styles.button} onClick={handleClick}>
         Buscar
       </button>
     </div>
