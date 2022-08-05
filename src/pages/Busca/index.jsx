@@ -34,6 +34,8 @@ export const Busca = () => {
     <Main>
       {error ? (
         <h2 className={styles.h2}>Não encontramos esse CEP 🤷 </h2>
+      ) : loading ? (
+        "carregando..."
       ) : (
         <div className={styles.addressContainer}>
           <span className={styles.span}>Localidade</span>
