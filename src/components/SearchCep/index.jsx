@@ -34,6 +34,8 @@ export const SearchCep = () => {
         value={cep}
         maxLength="8"
         placeholder="Somente números"
+        autoComplete="off"
+        inputMode="numeric"
         style={{
           borderColor: error ? "tomato" : "",
           color: error ? "tomato" : "",
