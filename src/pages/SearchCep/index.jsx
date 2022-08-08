@@ -1,12 +1,12 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Loading } from "../../components/Loading";
 
-import { Main } from "../../components/Main";
+import { Loading } from "../../components/Loading";
+import { Container } from "../../components/Container";
 
 import styles from "./index.module.css";
 
-export const Busca = () => {
+export const SearchCep = () => {
   const [data, setData] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(false);
@@ -28,11 +28,12 @@ export const Busca = () => {
 
         setData(body);
       })
-      .catch((err) => console.log("erroooo ", err));
+      .catch(() => setError(true))
+      .finally(() => setLoading(false));
   }, []);
 
   return (
-    <Main>
+    <Container>
       {loading ? (
         <Loading />
       ) : error ? (
@@ -67,6 +68,6 @@ export const Busca = () => {
       <button className={styles.button} onClick={() => navigate("/")}>
         Nova busca
       </button>
-    </Main>
+    </Container>
   );
 };

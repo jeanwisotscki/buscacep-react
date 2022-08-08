@@ -1,12 +1,12 @@
-import { Main } from "../../components/Main";
-import { SearchCep } from "../../components/SearchCep";
 import { Title } from "../../components/Title";
+import { InputCep } from "../../components/InputCep";
+import { Container } from "../../components/Container";
 
 export const Home = () => {
   return (
-    <Main>
+    <Container>
       <Title text="BuscaCEP Brasil" />
-      <SearchCep />
-    </Main>
+      <InputCep />
+    </Container>
   );
 };

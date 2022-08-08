@@ -1,10 +1,9 @@
 :root {
   --bg-color: #e5f8ff;
-  --title: rgb(29, 127, 239);
-  --label: rgb(134, 137, 143);
-  --white: rgb(241, 244, 249);
-  --black: rgb(18, 18, 18);
-  --primary: rgb(15, 69, 218);
+  --softBlue: rgb(29, 127, 239);
+  --softGray: rgb(134, 137, 143);
+  --white: rgb(255, 255, 255);
+  --black: rgb(18, 17, 17);
 }
 
 * {
@@ -17,6 +16,10 @@
 
 body {
   background-color: var(--bg-color);
+}
+
+button {
+  transition: 0.2s;
 }
 
 .error {

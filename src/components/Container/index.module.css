@@ -1,4 +1,4 @@
-.main {
+.container {
   height: 100vh;
   max-width: 50rem;
 
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .main {
+  .container {
     padding: 0rem 1rem;
   }
 }

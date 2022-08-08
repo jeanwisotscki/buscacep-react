@@ -1,22 +1,23 @@
 .h1 {
-  color: var(--title);
+  color: var(--softBlue);
   margin-bottom: 1rem;
 }
 
 .addressContainer {
   width: 100%;
-  background-color: white;
-  border-top: 3px solid var(--title);
+  background-color: var(--white);
+  border-top: 3px solid var(--softBlue);
   border-radius: 4px;
   padding: 1rem;
 }
 
 .span {
-  color: var(--label);
+  color: var(--softGray);
   font-weight: bold;
 }
 
 .paragraph {
+  color: var(--black);
   display: flex;
   align-items: center;
   font-size: 1.2rem;
@@ -25,8 +26,8 @@
 
 .paragraph::before {
   content: "";
+  background-color: var(--softBlue);
   display: block;
-  background-color: var(--title);
   height: 6px;
   width: 6px;
   margin-right: 7px;
@@ -35,7 +36,7 @@
 }
 
 .button {
-  background-color: var(--title);
+  background-color: var(--softBlue);
   color: var(--white);
   font-size: 1.2rem;
   margin-top: 1rem;
