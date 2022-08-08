@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Loading } from "../../components/Loading";
 
 import { Main } from "../../components/Main";
 
@@ -32,10 +33,10 @@ export const Busca = () => {
 
   return (
     <Main>
-      {error ? (
-        <h2 className={styles.h2}>Não encontramos esse CEP 🤷 </h2>
-      ) : loading ? (
-        "carregando..."
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <h1 className={styles.h1}>Não encontramos esse CEP 🤷 </h1>
       ) : (
         <div className={styles.addressContainer}>
           <span className={styles.span}>Localidade</span>

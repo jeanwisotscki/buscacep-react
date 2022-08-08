@@ -9,7 +9,7 @@ export const SearchCep = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (cep.length === 8) navigate("/busca/" + cep);
+    if (cep.length === 8) return navigate("/busca/" + cep);
 
     setError(true);
   };
@@ -39,7 +39,7 @@ export const SearchCep = () => {
         style={{
           borderColor: error ? "tomato" : "",
           color: error ? "tomato" : "",
-          boxShadow: error ? "0 0 0 1px red" : "",
+          boxShadow: error ? "0 0 0 1px tomato" : "",
         }}
         onKeyPress={(e) => isNumber(e)}
         onChange={(e) => {

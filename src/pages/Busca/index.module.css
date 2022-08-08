@@ -1,4 +1,4 @@
-.h2 {
+.h1 {
   color: var(--title);
   margin-bottom: 1rem;
 }
@@ -7,8 +7,8 @@
   width: 100%;
   background-color: white;
   border-top: 3px solid var(--title);
-  padding: 1rem;
   border-radius: 4px;
+  padding: 1rem;
 }
 
 .span {
@@ -17,21 +17,21 @@
 }
 
 .paragraph {
-  margin: 0.2rem 0 0.5rem 0.5rem;
-  font-size: 1.2rem;
   display: flex;
   align-items: center;
+  font-size: 1.2rem;
+  margin: 0.2rem 0 0.5rem 0.5rem;
 }
 
 .paragraph::before {
   content: "";
   display: block;
-  margin-right: 7px;
+  background-color: var(--title);
   height: 6px;
   width: 6px;
-  border-radius: 50%;
-  background-color: var(--title);
+  margin-right: 7px;
   margin-left: 5px;
+  border-radius: 50%;
 }
 
 .button {
@@ -50,7 +50,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .h2 {
+  .h1 {
     font-size: 1.375rem;
   }
 }
