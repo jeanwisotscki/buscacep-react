@@ -10,7 +10,7 @@ export const AppRoutes = () => {
       <Routes>
         <Route path="buscacep-react/" element={<Home />} />
         <Route path="buscacep-react/busca/:cep" element={<SearchCep />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="buscacep-react/*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

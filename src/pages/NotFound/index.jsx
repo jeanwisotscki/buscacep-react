@@ -9,7 +9,9 @@ export const NotFound = () => {
   return (
     <Container>
       <Title text="Página não encontrada 🤷" />
-      <button onClick={() => navigate("/")}>Voltar para página inicial</button>
+      <button onClick={() => navigate("buscacep-react/")}>
+        Voltar para página inicial
+      </button>
     </Container>
   );
 };
