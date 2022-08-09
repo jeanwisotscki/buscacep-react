@@ -12,7 +12,7 @@ export const SearchCep = () => {
   const [error, setError] = React.useState(false);
   const navigate = useNavigate();
 
-  const params = useParams("buscacep-react/busca/:cep");
+  const params = useParams("/busca/:cep");
   const { cep } = params;
 
   React.useEffect(() => {
@@ -65,10 +65,7 @@ export const SearchCep = () => {
         </div>
       )}
 
-      <button
-        className={styles.button}
-        onClick={() => navigate("buscacep-react/")}
-      >
+      <button className={styles.button} onClick={() => navigate("/")}>
         Nova busca
       </button>
     </Container>

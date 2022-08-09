@@ -8,9 +8,9 @@ export const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="buscacep-react/" element={<Home />} />
-        <Route path="buscacep-react/busca/:cep" element={<SearchCep />} />
-        <Route path="buscacep-react/*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/busca/:cep" element={<SearchCep />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
