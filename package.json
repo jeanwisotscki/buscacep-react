@@ -1,7 +1,7 @@
 {
   "name": "busca-cep-react",
   "private": true,
-  "homepage": "https://jeanwisotscki.github.io/buscacep-react/",
+  "homepage": "buscacep-react/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
