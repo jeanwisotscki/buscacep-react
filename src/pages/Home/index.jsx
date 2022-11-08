@@ -1,12 +1,10 @@
-import { Title } from "../../components/Title";
-import { InputCep } from "../../components/InputCep";
-import { Container } from "../../components/Container";
+import * as Components from "../../components";
 
 export const Home = () => {
   return (
-    <Container>
-      <Title text="BuscaCEP Brasil" />
-      <InputCep />
-    </Container>
+    <Components.Container>
+      <Components.Title text="BuscaCEP Brasil" />
+      <Components.InputCepContainer />
+    </Components.Container>
   );
 };

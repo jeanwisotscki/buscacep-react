@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./index.module.css";
 
-export const InputCep = () => {
+export const InputCepContainer = () => {
   const [error, setError] = React.useState(false);
   const [cep, setCep] = React.useState("");
   const navigate = useNavigate();

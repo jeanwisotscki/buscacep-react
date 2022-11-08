@@ -1,8 +1,7 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import { Loading } from "../../components/Loading";
-import { Container } from "../../components/Container";
+import * as Components from "../../components";
 
 import styles from "./index.module.css";
 
@@ -33,9 +32,9 @@ export const SearchCep = () => {
   }, []);
 
   return (
-    <Container>
+    <Components.Container>
       {loading ? (
-        <Loading />
+        <Components.Loading />
       ) : error ? (
         <h1 className={styles.h1}>Não encontramos esse CEP 🤷 </h1>
       ) : (
@@ -68,6 +67,6 @@ export const SearchCep = () => {
       <button className={styles.button} onClick={() => navigate("/")}>
         Nova busca
       </button>
-    </Container>
+    </Components.Container>
   );
 };
