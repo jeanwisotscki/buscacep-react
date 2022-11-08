@@ -3,23 +3,23 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./index.module.css";
 
-export const InputCepContainer = () => {
-  const [error, setError] = React.useState(false);
-  const [cep, setCep] = React.useState("");
-  const navigate = useNavigate();
+const correctLengthOfCep = 8;
 
-  const handleCep = () => {
-    if (cep.length === 8) return navigate("/busca/" + cep);
+const isNumber = (e) => {
+  if (e.keyCode !== 8) {
+    if (!/\d/.test(e.key)) return e.preventDefault();
+  }
+};
+
+export const InputCepContainer = () => {
+  const navigate = useNavigate();
+  const [cep, setCep] = React.useState("");
+  const [error, setError] = React.useState(false);
+
+  const handleNavigation = () => {
+    if (cep.length === correctLengthOfCep) return navigate("/busca/" + cep);
 
     setError(true);
-  };
-
-  const isNumber = (e) => {
-    if (e.keyCode !== 8) {
-      if (!/\d/.test(e.key)) {
-        e.preventDefault();
-      }
-    }
   };
 
   return (
@@ -32,7 +32,7 @@ export const InputCepContainer = () => {
         id="cep"
         type="text"
         value={cep}
-        maxLength="8"
+        maxLength={correctLengthOfCep}
         placeholder="Somente números"
         autoComplete="off"
         inputMode="numeric"
@@ -42,7 +42,9 @@ export const InputCepContainer = () => {
           color: error ? "tomato" : "",
           boxShadow: error ? "0 0 0 1px tomato" : "",
         }}
-        onKeyPress={(e) => (e.key === "Enter" ? handleCep() : isNumber(e))}
+        onKeyPress={(e) =>
+          e.key === "Enter" ? handleNavigation() : isNumber(e)
+        }
         onChange={(e) => {
           setCep(e.target.value);
           setError(false);
@@ -54,7 +56,7 @@ export const InputCepContainer = () => {
         </strong>
       )}
 
-      <button className={styles.button} onClick={handleCep}>
+      <button className={styles.button} onClick={handleNavigation}>
         Buscar
       </button>
     </div>
