@@ -6,30 +6,32 @@ import * as Components from "../../components";
 import styles from "./index.module.css";
 
 export const SearchCep = () => {
-  const [data, setData] = React.useState("");
-  const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState(false);
   const navigate = useNavigate();
+  const [data, setData] = React.useState("");
+  const [error, setError] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   const params = useParams("/busca/:cep");
   const { cep } = params;
 
-  React.useEffect(() => {
+  const handleFetch = () => {
+    const URL = `https://viacep.com.br/ws/${cep}/json`;
+
     setLoading(true);
 
-    const url = "https://viacep.com.br/ws/" + cep + "/json/";
-
-    fetch(url)
+    fetch(URL)
       .then((res) => res.json())
       .then((body) => {
-        setLoading(false);
         if (body.erro) return setError(true);
 
         setData(body);
+        setLoading(false);
       })
       .catch(() => setError(true))
       .finally(() => setLoading(false));
-  }, []);
+  };
+
+  React.useEffect(() => handleFetch, []);
 
   return (
     <Components.Container>

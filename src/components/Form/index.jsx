@@ -10,7 +10,7 @@ const allowOnlyNumbers = (e) => {
   if (!/\d/.test(e.key)) return e.preventDefault();
 };
 
-export const InputCepContainer = () => {
+export const Form = () => {
   const navigate = useNavigate();
   const [cep, setCep] = React.useState("");
   const [error, setError] = React.useState(false);
@@ -22,7 +22,7 @@ export const InputCepContainer = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <form className={styles.container} onSubmit={(e) => e.preventDefault()}>
       <label className={styles.label} htmlFor="cep">
         Digite um CEP:
       </label>
@@ -60,6 +60,6 @@ export const InputCepContainer = () => {
       <button className={styles.button} onClick={handleNavigation}>
         Buscar
       </button>
-    </div>
+    </form>
   );
 };
