@@ -3,12 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./index.module.css";
 
+//
 const correctLengthOfCep = 8;
 
-const isNumber = (e) => {
-  if (e.keyCode !== 8) {
-    if (!/\d/.test(e.key)) return e.preventDefault();
-  }
+const allowOnlyNumbers = (e) => {
+  if (!/\d/.test(e.key)) return e.preventDefault();
 };
 
 export const InputCepContainer = () => {
@@ -43,18 +42,20 @@ export const InputCepContainer = () => {
           boxShadow: error ? "0 0 0 1px tomato" : "",
         }}
         onKeyPress={(e) =>
-          e.key === "Enter" ? handleNavigation() : isNumber(e)
+          e.key === "Enter" ? handleNavigation() : allowOnlyNumbers(e)
         }
         onChange={(e) => {
           setCep(e.target.value);
           setError(false);
         }}
       />
-      {error && (
-        <strong className="error">
-          Por favor, preencha o campo corretamente.
-        </strong>
-      )}
+      <div className={styles.errorContainer}>
+        {error && (
+          <strong className="error">
+            Por favor, preencha o campo corretamente.
+          </strong>
+        )}
+      </div>
 
       <button className={styles.button} onClick={handleNavigation}>
         Buscar
