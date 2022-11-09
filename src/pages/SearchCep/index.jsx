@@ -14,24 +14,27 @@ export const SearchCep = () => {
   const params = useParams("/busca/:cep");
   const { cep } = params;
 
-  const handleFetch = () => {
+  const handleFetch = async () => {
     const URL = `https://viacep.com.br/ws/${cep}/json`;
 
     setLoading(true);
+    try {
+      const response = await fetch(URL);
+      const data = await response.json();
 
-    fetch(URL)
-      .then((res) => res.json())
-      .then((body) => {
-        if (body.erro) return setError(true);
+      if (data.erro) return setError(true);
 
-        setData(body);
-        setLoading(false);
-      })
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
+      setData(data);
+    } catch (err) {
+      if (err) return setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  React.useEffect(() => handleFetch, []);
+  React.useEffect(() => {
+    handleFetch();
+  }, []);
 
   return (
     <Components.Container>
